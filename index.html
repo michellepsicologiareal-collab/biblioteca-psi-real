@@ -163,8 +163,31 @@
       .cta-box { text-align: center; justify-content: center; }
     }
   </style>
+
+  <!-- PWA -->
+  <link rel="manifest" href="./manifest.json" />
+  <meta name="theme-color" content="#8B4A52" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Psi Real" />
+  <link rel="apple-touch-icon" href="./icons/icon-192.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="./icons/icon-512.png" />
 </head>
 <body>
+<!-- PWA Install Banner -->
+<div id="pwa-install-banner" style="display:none; position:fixed; bottom:1.25rem; left:50%; transform:translateX(-50%); z-index:9999; background:#fff; border:1px solid #F0E8E3; border-radius:12px; box-shadow:0 8px 32px rgba(139,74,82,0.15); padding:0.9rem 1.1rem; align-items:center; gap:0.9rem; max-width:360px; width:calc(100% - 2rem);">
+  <div style="width:36px;height:36px;background:#F8EDEB;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B4A52" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6s4-2 11-2 11 2 11 2v13s-4-2-11-2S1 19 1 19z"/><line x1="12" y1="4" x2="12" y2="17"/></svg>
+  </div>
+  <div style="flex:1;min-width:0;">
+    <div style="font-size:13px;font-weight:500;color:#2A1A18;">Instalar Psi Real</div>
+    <div style="font-size:11px;color:#8A7370;">Acesse offline, como um app</div>
+  </div>
+  <button onclick="installPWA()" style="background:#8B4A52;color:#fff;border:none;border-radius:7px;padding:7px 14px;font-size:12px;font-weight:500;cursor:pointer;white-space:nowrap;font-family:inherit;">Instalar</button>
+  <button onclick="dismissInstallBanner()" style="background:none;border:none;color:#C4A8A4;cursor:pointer;padding:4px;line-height:1;" aria-label="Fechar">✕</button>
+</div>
 
 <nav>
   <a class="nav-logo" href="index.html">
@@ -176,7 +199,7 @@
   <div class="nav-links">
     <a href="#materiais">Materiais</a>
     <a href="#como-funciona">Como funciona</a>
-    <a href="https://github.com/michellepsicologiareal-collab/biblioteca-psi-real" target="_blank">GitHub</a>
+    <a href="https://wa.me/5511947388423" target="_blank">WhatsApp</a>
   </div>
 </nav>
 
@@ -186,7 +209,7 @@
   <p class="hero-sub">Recursos estruturados e visualmente cuidados para supervisoras e terapeutas em TCC. Formulações, avaliações, técnicas — tudo em um só lugar.</p>
   <div class="hero-actions">
     <a href="#materiais" class="btn-primary">Explorar materiais</a>
-    <a href="https://github.com/michellepsicologiareal-collab/biblioteca-psi-real" target="_blank" class="btn-secondary">Ver no GitHub →</a>
+    <a href="https://wa.me/5511947388423" target="_blank" class="btn-secondary">Falar no WhatsApp →</a>
   </div>
 </section>
 
@@ -278,22 +301,22 @@
       </div>
     </a>
 
-    <div class="card card-soon">
-      <div class="card-thumb card-thumb-muted">
+    <a href="materiais/alianca-terapeutica/index.html" class="card">
+      <div class="card-thumb">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
         </svg>
-        <span class="card-thumb-label label-soon">Em breve</span>
+        <span class="card-thumb-label label-rose">Disponível</span>
       </div>
       <div class="card-body">
         <div class="card-title">Aliança Terapêutica em TCC</div>
         <div class="card-desc">Como construir e manejar a relação terapêutica — rupturas e reparação dentro do modelo.</div>
         <div class="card-footer">
-          <span class="card-author">Safran & Segal</span>
-          <span class="card-cta">Em breve</span>
+          <span class="card-author">Safran &amp; Segal</span>
+          <span class="card-cta">Ler material →</span>
         </div>
       </div>
-    </div>
+    </a>
 
     <div class="card card-soon">
       <div class="card-thumb card-thumb-muted">
@@ -352,14 +375,58 @@
       <h3>Uma biblioteca que cresce com a clínica.</h3>
       <p>Novos materiais chegam continuamente. Se você tem um conteúdo estruturado em TCC e quer contribuir, fala com a gente.</p>
     </div>
-    <a href="mailto:contato@bibliotecapsireal.com.br" class="btn-white">Entrar em contato →</a>
+    <a href="https://wa.me/5511947388423" target="_blank" class="btn-white">Falar no WhatsApp →</a>
   </div>
 </section>
 
 <footer>
   <div class="footer-logo">Biblioteca Psi<span>Real</span></div>
-  <p>Recursos clínicos em TCC · Acesso aberto · <a href="https://github.com/michellepsicologiareal-collab/biblioteca-psi-real" target="_blank">GitHub</a></p>
+  <p>Recursos clínicos em TCC · Acesso aberto</p>
 </footer>
 
+
+<script>
+  // Service Worker
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js')
+        .catch(err => console.warn('SW registration failed:', err));
+    });
+  }
+
+  // Install prompt (A2HS banner)
+  let deferredPrompt = null;
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    const banner = document.getElementById('pwa-install-banner');
+    if (banner) banner.style.display = 'flex';
+  });
+
+  window.addEventListener('appinstalled', () => {
+    const banner = document.getElementById('pwa-install-banner');
+    if (banner) banner.style.display = 'none';
+    deferredPrompt = null;
+  });
+
+  function installPWA() {
+    if (!deferredPrompt) return;
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(() => { deferredPrompt = null; });
+  }
+
+  function dismissInstallBanner() {
+    const banner = document.getElementById('pwa-install-banner');
+    if (banner) banner.style.display = 'none';
+    sessionStorage.setItem('pwa-banner-dismissed', '1');
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    if (sessionStorage.getItem('pwa-banner-dismissed')) {
+      const banner = document.getElementById('pwa-install-banner');
+      if (banner) banner.style.display = 'none';
+    }
+  });
+</script>
 </body>
 </html>
