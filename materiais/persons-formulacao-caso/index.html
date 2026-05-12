@@ -153,15 +153,15 @@
   </style>
 
   <!-- PWA -->
-  <link rel="manifest" href="../../manifest.json" />
+  <link rel="manifest" href="/biblioteca-psi-real/manifest.json" />
   <meta name="theme-color" content="#8B4A52" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="apple-mobile-web-app-title" content="Psi Real" />
-  <link rel="apple-touch-icon" href="../../icons/icon-192.png" />
-  <link rel="icon" type="image/png" sizes="192x192" href="../../icons/icon-192.png" />
-  <link rel="icon" type="image/png" sizes="512x512" href="../../icons/icon-512.png" />
+  <link rel="apple-touch-icon" href="/biblioteca-psi-real/icons/icon-192.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/biblioteca-psi-real/icons/icon-192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="/biblioteca-psi-real/icons/icon-512.png" />
 </head>
 <body>
 <!-- PWA Install Banner -->
@@ -178,7 +178,7 @@
 </div>
 
 <nav>
-  <a class="nav-back" href="../../index.html">
+  <a class="nav-back" href="/biblioteca-psi-real/index.html">
     <span class="nav-back-arrow">←</span> Biblioteca Psi Real
   </a>
   <span class="nav-title">Formulação de Caso · Persons</span>
@@ -203,7 +203,7 @@
 
   <main class="content">
     <div class="doc-header">
-      <div class="breadcrumb"><a href="../../index.html">Biblioteca Psi Real</a> / TCC / Formulação de Caso</div>
+      <div class="breadcrumb"><a href="/biblioteca-psi-real/index.html">Biblioteca Psi Real</a> / TCC / Formulação de Caso</div>
       <div class="doc-tags">
         <span class="doc-tag tag-tcc">TCC</span>
         <span class="doc-tag tag-form">Formulação de Caso</span>
@@ -412,7 +412,7 @@
   // Service Worker
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('../../sw.js')
+      navigator.serviceWorker.register('/biblioteca-psi-real/sw.js')
         .catch(err => console.warn('SW registration failed:', err));
     });
   }

@@ -7,16 +7,16 @@ const PAGES_CACHE  = `${CACHE_VERSION}-pages`;
 
 // Recursos essenciais cacheados na instalação
 const PRECACHE_URLS = [
-  '/',
-  '/index.html',
-  '/materiais/persons-formulacao-caso/index.html',
-  '/materiais/avaliacao-tcc/index.html',
-  '/materiais/reestruturacao-cognitiva/index.html',
-  '/materiais/exposicao-epr/index.html',
-  '/materiais/alianca-terapeutica/index.html',
-  '/manifest.json',
-  '/icons/icon-192.png',
-  '/icons/icon-512.png',
+  '/biblioteca-psi-real/',
+  '/biblioteca-psi-real/index.html',
+  '/biblioteca-psi-real/materiais/persons-formulacao-caso/index.html',
+  '/biblioteca-psi-real/materiais/avaliacao-tcc/index.html',
+  '/biblioteca-psi-real/materiais/reestruturacao-cognitiva/index.html',
+  '/biblioteca-psi-real/materiais/exposicao-epr/index.html',
+  '/biblioteca-psi-real/materiais/alianca-terapeutica/index.html',
+  '/biblioteca-psi-real/manifest.json',
+  '/biblioteca-psi-real/icons/icon-192.png',
+  '/biblioteca-psi-real/icons/icon-512.png',
 ];
 
 // ─── INSTALL ──────────────────────────────────────────────────────────────────

@@ -2,7 +2,7 @@
   "name": "Biblioteca Psi Real",
   "short_name": "Psi Real",
   "description": "Recursos clínicos em TCC — acesso aberto para psicólogos.",
-  "start_url": "/",
+  "start_url": "/biblioteca-psi-real/",
   "display": "standalone",
   "background_color": "#FAFAFA",
   "theme_color": "#8B4A52",
@@ -11,13 +11,13 @@
   "categories": ["education", "medical", "health"],
   "icons": [
     {
-      "src": "icons/icon-192.png",
+      "src": "/biblioteca-psi-real/icons/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "icons/icon-512.png",
+      "src": "/biblioteca-psi-real/icons/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
@@ -26,22 +26,22 @@
   "shortcuts": [
     {
       "name": "Formulação de Caso",
-      "url": "/materiais/persons-formulacao-caso/",
+      "url": "/biblioteca-psi-real/materiais/persons-formulacao-caso/",
       "description": "Jacqueline Persons — 7 componentes do modelo"
     },
     {
       "name": "Reestruturação Cognitiva",
-      "url": "/materiais/reestruturacao-cognitiva/",
+      "url": "/biblioteca-psi-real/materiais/reestruturacao-cognitiva/",
       "description": "Identificação e modificação de pensamentos automáticos"
     },
     {
       "name": "Avaliação TCC",
-      "url": "/materiais/avaliacao-tcc/",
+      "url": "/biblioteca-psi-real/materiais/avaliacao-tcc/",
       "description": "Anamnese, inventários e formulação inicial"
     },
     {
       "name": "Exposição e EPR",
-      "url": "/materiais/exposicao-epr/",
+      "url": "/biblioteca-psi-real/materiais/exposicao-epr/",
       "description": "Protocolo EPR para TOC e transtornos de ansiedade"
     }
   ]

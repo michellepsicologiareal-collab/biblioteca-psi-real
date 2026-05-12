@@ -165,7 +165,7 @@
   </style>
 
   <!-- PWA -->
-  <link rel="manifest" href="./manifest.json" />
+  <link rel="manifest" href="/biblioteca-psi-real/manifest.json" />
   <meta name="theme-color" content="#8B4A52" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -190,7 +190,7 @@
 </div>
 
 <nav>
-  <a class="nav-logo" href="index.html">
+  <a class="nav-logo" href="/biblioteca-psi-real/index.html">
     <div class="nav-logo-icon">
       <svg viewBox="0 0 24 24"><path d="M12 3c-1.5 0-3 .6-4 1.7C6.8 6 6 7.5 6 9c0 1.2.4 2.3 1 3.2-.3.6-.5 1.2-.5 1.8 0 2.2 2 4 4.5 4s4.5-1.8 4.5-4c0-.6-.2-1.2-.5-1.8.6-.9 1-2 1-3.2 0-1.5-.8-3-2-4.3C12.9 3.5 12 3 12 3z"/><path d="M9 15.5c0 1 1.3 1.5 3 1.5s3-.5 3-1.5"/></svg>
     </div>
@@ -226,7 +226,7 @@
 
   <div class="cards-grid">
 
-    <a href="materiais/persons-formulacao-caso/index.html" class="card">
+    <a href="/biblioteca-psi-real/materiais/persons-formulacao-caso/index.html" class="card">
       <div class="card-thumb">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.46 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.44-4.14z"/>
@@ -244,7 +244,7 @@
       </div>
     </a>
 
-    <a class="card" href="materiais/avaliacao-tcc/index.html">
+    <a class="card" href="/biblioteca-psi-real/materiais/avaliacao-tcc/index.html">
       <div class="card-thumb">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <rect x="8" y="2" width="8" height="4" rx="1"/>
@@ -263,7 +263,7 @@
       </div>
     </a>
 
-    <a class="card" href="materiais/reestruturacao-cognitiva/index.html">
+    <a class="card" href="/biblioteca-psi-real/materiais/reestruturacao-cognitiva/index.html">
       <div class="card-thumb">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
@@ -281,7 +281,7 @@
       </div>
     </a>
 
-    <a class="card" href="materiais/exposicao-epr/index.html">
+    <a class="card" href="/biblioteca-psi-real/materiais/exposicao-epr/index.html">
       <div class="card-thumb">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
@@ -301,7 +301,7 @@
       </div>
     </a>
 
-    <a href="materiais/alianca-terapeutica/index.html" class="card">
+    <a href="/biblioteca-psi-real/materiais/alianca-terapeutica/index.html" class="card">
       <div class="card-thumb">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
@@ -389,7 +389,7 @@
   // Service Worker
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('./sw.js')
+      navigator.serviceWorker.register('/biblioteca-psi-real/sw.js')
         .catch(err => console.warn('SW registration failed:', err));
     });
   }
