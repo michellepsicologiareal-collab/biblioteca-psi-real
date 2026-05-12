@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://michellepsicologiareal-collab.github.io/biblioteca-psi-real/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://michellepsicologiareal-collab.github.io/biblioteca-psi-real/materiais/persons-formulacao-caso/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://michellepsicologiareal-collab.github.io/biblioteca-psi-real/materiais/avaliacao-tcc/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://michellepsicologiareal-collab.github.io/biblioteca-psi-real/materiais/reestruturacao-cognitiva/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://michellepsicologiareal-collab.github.io/biblioteca-psi-real/materiais/exposicao-epr/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://michellepsicologiareal-collab.github.io/biblioteca-psi-real/materiais/alianca-terapeutica/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>
