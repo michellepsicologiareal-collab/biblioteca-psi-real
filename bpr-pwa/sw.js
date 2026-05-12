@@ -1,7 +1,7 @@
 // Biblioteca Psi Real — Service Worker
 // Versão: incrementar ao fazer deploy para forçar atualização de cache
 
-const CACHE_VERSION = 'bpr-v1';
+const CACHE_VERSION = 'bpr-v2';
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const PAGES_CACHE  = `${CACHE_VERSION}-pages`;
 
@@ -13,6 +13,7 @@ const PRECACHE_URLS = [
   '/materiais/avaliacao-tcc/index.html',
   '/materiais/reestruturacao-cognitiva/index.html',
   '/materiais/exposicao-epr/index.html',
+  '/materiais/alianca-terapeutica/index.html',
   '/manifest.json',
   '/icons/icon-192.png',
   '/icons/icon-512.png',
