@@ -3,453 +3,422 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Formulação de Caso — Jacqueline Persons | Biblioteca Psi Real</title>
+  <title>Biblioteca Psi Real</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     :root {
       --ink: #1a1a1a;
       --ink-muted: #5a5a5a;
       --ink-faint: #9a9a9a;
       --surface: #fafaf7;
-      --surface-2: #f2f1eb;
+      --surface-2: #f0efe9;
       --surface-3: #e6e5de;
       --accent: #3d6b5e;
       --accent-light: #edf4f2;
       --accent-mid: #c8ddd8;
       --warm: #b5613a;
       --warm-light: #faf0eb;
-      --warm-mid: #f5d5c3;
       --border: rgba(0,0,0,0.09);
       --radius: 12px;
       --radius-sm: 8px;
-      --sidebar-w: 240px;
     }
+
     html { scroll-behavior: smooth; }
-    body { font-family: 'DM Sans', sans-serif; background: var(--surface); color: var(--ink); }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--surface);
+      color: var(--ink);
+      line-height: 1.6;
+    }
 
     /* NAV */
     nav {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(250,250,247,0.94); backdrop-filter: blur(12px);
+      background: rgba(250, 250, 247, 0.92);
+      backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
-      padding: 0 2rem; height: 56px;
+      padding: 0 2rem;
       display: flex; align-items: center; justify-content: space-between;
+      height: 60px;
     }
-    .nav-back {
-      display: flex; align-items: center; gap: 8px;
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 18px; color: var(--ink);
+      text-decoration: none; letter-spacing: -0.01em;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a {
       font-size: 14px; color: var(--ink-muted); text-decoration: none;
-      transition: color 0.2s;
+      font-weight: 400; transition: color 0.2s;
     }
-    .nav-back:hover { color: var(--ink); }
-    .nav-back svg { width: 16px; height: 16px; }
-    .nav-title { font-size: 14px; color: var(--ink-faint); }
+    .nav-links a:hover { color: var(--ink); }
 
-    /* LAYOUT */
-    .layout { display: flex; max-width: 1100px; margin: 0 auto; padding: 0 2rem; gap: 3rem; }
-
-    /* SIDEBAR */
-    .sidebar {
-      width: var(--sidebar-w); flex-shrink: 0;
-      position: sticky; top: 72px;
-      height: calc(100vh - 80px); overflow-y: auto;
-      padding: 2.5rem 0;
+    /* HERO */
+    .hero {
+      max-width: 800px; margin: 0 auto;
+      padding: 6rem 2rem 4rem;
+      text-align: center;
     }
-    .sidebar::-webkit-scrollbar { width: 4px; }
-    .sidebar::-webkit-scrollbar-thumb { background: var(--surface-3); border-radius: 2px; }
-
-    .toc-label {
-      font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--ink-faint); margin-bottom: 1rem;
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 12px; font-weight: 500; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--accent);
+      background: var(--accent-light); border: 1px solid var(--accent-mid);
+      padding: 5px 14px; border-radius: 99px; margin-bottom: 2rem;
     }
-    .toc-list { list-style: none; }
-    .toc-list li { margin-bottom: 2px; }
-    .toc-list a {
-      display: block; font-size: 13px; color: var(--ink-muted);
-      text-decoration: none; padding: 5px 10px; border-radius: var(--radius-sm);
-      transition: all 0.15s; line-height: 1.4;
-    }
-    .toc-list a:hover { color: var(--ink); background: var(--surface-2); }
-    .toc-list a.active { color: var(--accent); background: var(--accent-light); font-weight: 500; }
-    .toc-num { font-size: 11px; color: var(--ink-faint); margin-right: 6px; }
-
-    /* CONTENT */
-    .content { flex: 1; min-width: 0; padding: 3rem 0 6rem; }
-
-    /* HEADER */
-    .doc-header { margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
-    .breadcrumb { font-size: 12px; color: var(--ink-faint); margin-bottom: 1rem; }
-    .breadcrumb a { color: var(--accent); text-decoration: none; }
-    .breadcrumb a:hover { text-decoration: underline; }
-    .doc-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 1.25rem; }
-    .doc-tag {
-      font-size: 11px; font-weight: 500; letter-spacing: 0.06em;
-      text-transform: uppercase; padding: 4px 12px; border-radius: 99px;
-    }
-    .tag-tcc { background: var(--accent-light); color: var(--accent); border: 1px solid var(--accent-mid); }
-    .tag-formulacao { background: var(--warm-light); color: var(--warm); border: 1px solid var(--warm-mid); }
-    h1.doc-title {
+    .hero-tag::before { content: '●'; font-size: 8px; }
+    h1 {
       font-family: 'DM Serif Display', serif;
-      font-size: clamp(28px, 4vw, 42px);
-      line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 1rem;
+      font-size: clamp(36px, 6vw, 58px);
+      line-height: 1.1; letter-spacing: -0.02em;
+      color: var(--ink); margin-bottom: 1.25rem;
     }
-    .doc-intro { font-size: 16px; color: var(--ink-muted); line-height: 1.75; max-width: 600px; }
-    .doc-meta { display: flex; gap: 1.5rem; margin-top: 1.5rem; flex-wrap: wrap; }
-    .doc-meta-item { font-size: 12px; color: var(--ink-faint); display: flex; align-items: center; gap: 6px; }
-    .doc-meta-item strong { color: var(--ink-muted); font-weight: 500; }
+    h1 em { color: var(--accent); font-style: italic; }
+    .hero-sub {
+      font-size: 17px; color: var(--ink-muted); line-height: 1.7;
+      max-width: 540px; margin: 0 auto 2.5rem;
+    }
+    .hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--accent); color: #fff;
+      font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500;
+      padding: 12px 24px; border-radius: var(--radius-sm);
+      text-decoration: none; transition: opacity 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.88; }
+    .btn-secondary {
+      background: transparent; color: var(--ink);
+      font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 400;
+      padding: 11px 22px; border-radius: var(--radius-sm);
+      border: 1px solid var(--border); text-decoration: none; transition: background 0.2s;
+    }
+    .btn-secondary:hover { background: var(--surface-2); }
 
-    /* SECTIONS */
-    .doc-section { margin-bottom: 4rem; scroll-margin-top: 80px; }
+    /* STATS */
+    .stats {
+      display: flex; justify-content: center; gap: 3rem;
+      padding: 3rem 2rem; border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--surface-2);
+    }
+    .stat { text-align: center; }
+    .stat-number {
+      font-family: 'DM Serif Display', serif;
+      font-size: 32px; color: var(--ink); letter-spacing: -0.02em;
+    }
+    .stat-label { font-size: 13px; color: var(--ink-faint); margin-top: 2px; }
+
+    /* SECTION */
+    .section { max-width: 1060px; margin: 0 auto; padding: 5rem 2rem; }
+    .section-header { margin-bottom: 2.5rem; }
     .section-eyebrow {
-      font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--ink-faint); margin-bottom: 0.4rem;
+      font-size: 12px; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem;
     }
-    h2.sec-title {
+    h2 {
       font-family: 'DM Serif Display', serif;
-      font-size: clamp(20px, 3vw, 28px); letter-spacing: -0.01em;
-      line-height: 1.2; margin-bottom: 1.25rem;
-      padding-bottom: 0.75rem; border-bottom: 1px solid var(--border);
+      font-size: clamp(24px, 4vw, 36px);
+      letter-spacing: -0.02em; line-height: 1.2;
+      color: var(--ink);
     }
-    h3.sub-title {
-      font-size: 16px; font-weight: 500; color: var(--ink);
-      margin: 2rem 0 0.75rem;
-    }
-    p.body { font-size: 15px; line-height: 1.8; color: var(--ink); margin-bottom: 1rem; }
+    .section-sub { font-size: 15px; color: var(--ink-muted); margin-top: 0.5rem; }
 
-    /* CALLOUTS */
-    .callout {
-      border-left: 3px solid var(--accent-mid); background: var(--accent-light);
-      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-      padding: 1rem 1.25rem; margin: 1.5rem 0;
+    /* CARDS GRID */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.25rem;
     }
-    .callout p { font-size: 14px; line-height: 1.7; color: var(--accent); margin: 0; }
-    .callout strong { font-weight: 500; }
-    .callout-warn {
-      border-left-color: var(--warm-mid); background: var(--warm-light);
-    }
-    .callout-warn p { color: var(--warm); }
 
-    /* COMPONENT GRID */
-    .comp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 10px; margin: 1.5rem 0; }
-    .comp-card {
+    .card {
       background: #fff; border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 1.1rem;
-      transition: box-shadow 0.2s;
+      border-radius: var(--radius); overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-decoration: none; color: inherit; display: block;
     }
-    .comp-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
-    .comp-n { font-size: 11px; color: var(--ink-faint); margin-bottom: 4px; font-weight: 500; }
-    .comp-name { font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 6px; }
-    .comp-desc { font-size: 12px; line-height: 1.6; color: var(--ink-muted); }
+    .card:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
 
-    /* TWO COLS */
-    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 1.25rem 0; }
-    @media (max-width: 560px) { .two-col { grid-template-columns: 1fr; } }
-    .info-box {
-      background: var(--surface-2); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 1rem 1.1rem;
+    .card-thumb {
+      height: 160px; display: flex; align-items: center; justify-content: center;
+      font-size: 48px; position: relative; overflow: hidden;
     }
-    .info-box-label {
-      font-size: 11px; font-weight: 500; text-transform: uppercase;
-      letter-spacing: 0.07em; color: var(--ink-faint); margin-bottom: 0.5rem;
-    }
-    .info-box p, .info-box li {
-      font-size: 13px; line-height: 1.65; color: var(--ink-muted);
-    }
-    .info-box ul { padding-left: 1rem; margin-top: 4px; }
-    .info-box li { margin-bottom: 3px; }
+    .card-thumb-tcc { background: linear-gradient(135deg, #edf4f2 0%, #c8ddd8 100%); }
+    .card-thumb-avaliacao { background: linear-gradient(135deg, #faf0eb 0%, #f5d5c3 100%); }
+    .card-thumb-soon { background: var(--surface-2); }
 
-    /* STEPS */
-    .steps { list-style: none; margin: 1.25rem 0; }
-    .steps li {
-      display: flex; gap: 14px; align-items: flex-start;
-      padding: 0.75rem 0; border-bottom: 1px solid var(--border);
-      font-size: 14px; line-height: 1.65; color: var(--ink);
+    .card-thumb-label {
+      position: absolute; top: 12px; left: 12px;
+      font-size: 11px; font-weight: 500; letter-spacing: 0.06em;
+      text-transform: uppercase; padding: 4px 10px;
+      border-radius: 99px; backdrop-filter: blur(8px);
     }
-    .steps li:last-child { border-bottom: none; }
-    .step-dot {
-      min-width: 26px; height: 26px; border-radius: 50%;
-      background: var(--surface-2); border: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 11px; font-weight: 500; color: var(--ink-muted); margin-top: 1px;
-    }
+    .label-tcc { background: rgba(61,107,94,0.15); color: var(--accent); }
+    .label-avaliacao { background: rgba(181,97,58,0.15); color: var(--warm); }
+    .label-soon { background: rgba(0,0,0,0.08); color: var(--ink-faint); }
 
-    /* HIGHLIGHT ROWS */
-    .hl-row {
-      background: var(--surface-2); border-radius: var(--radius-sm);
-      padding: 0.8rem 1.1rem; margin: 0.4rem 0;
-      font-size: 14px; line-height: 1.65; color: var(--ink);
+    .card-body { padding: 1.25rem 1.25rem 1.5rem; }
+    .card-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 18px; line-height: 1.3; margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
     }
-    .hl-row strong { font-weight: 500; }
-
-    /* REFERENCES */
-    .ref-item {
-      font-size: 13px; color: var(--ink-muted); line-height: 1.7;
-      padding: 8px 0; border-bottom: 1px solid var(--border);
+    .card-desc { font-size: 13px; color: var(--ink-muted); line-height: 1.6; margin-bottom: 1rem; }
+    .card-footer { display: flex; align-items: center; justify-content: space-between; }
+    .card-author { font-size: 12px; color: var(--ink-faint); }
+    .card-cta {
+      font-size: 12px; font-weight: 500; color: var(--accent);
+      display: flex; align-items: center; gap: 4px;
     }
-    .ref-item:last-child { border-bottom: none; }
+    .card-cta svg { width: 14px; height: 14px; }
 
-    /* MOBILE SIDEBAR */
-    @media (max-width: 768px) {
-      .sidebar { display: none; }
-      .layout { padding: 0 1.25rem; }
+    .card-soon { opacity: 0.55; pointer-events: none; cursor: default; }
+    .card-soon:hover { transform: none; box-shadow: none; }
+
+    /* DIVIDER */
+    .divider { border: none; border-top: 1px solid var(--border); }
+
+    /* HOW IT WORKS */
+    .how-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; }
+    .how-step { }
+    .how-num {
+      font-family: 'DM Serif Display', serif; font-size: 40px;
+      color: var(--surface-3); line-height: 1; margin-bottom: 1rem;
+    }
+    .how-title { font-size: 15px; font-weight: 500; margin-bottom: 0.4rem; }
+    .how-desc { font-size: 13px; color: var(--ink-muted); line-height: 1.65; }
+
+    /* CONTRIBUTE */
+    .contribute {
+      background: var(--accent); color: #fff;
+      border-radius: var(--radius); padding: 3rem 2.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 2rem; flex-wrap: wrap;
+    }
+    .contribute h3 { font-family: 'DM Serif Display', serif; font-size: 24px; margin-bottom: 0.5rem; }
+    .contribute p { font-size: 14px; opacity: 0.8; max-width: 420px; }
+    .btn-white {
+      background: #fff; color: var(--accent);
+      font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500;
+      padding: 12px 24px; border-radius: var(--radius-sm);
+      text-decoration: none; white-space: nowrap; transition: opacity 0.2s;
+    }
+    .btn-white:hover { opacity: 0.9; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border); padding: 2.5rem 2rem;
+      text-align: center;
+    }
+    .footer-logo {
+      font-family: 'DM Serif Display', serif; font-size: 20px;
+      color: var(--ink); margin-bottom: 0.5rem; letter-spacing: -0.01em;
+    }
+    .footer-logo span { color: var(--accent); }
+    footer p { font-size: 13px; color: var(--ink-faint); }
+    footer a { color: var(--accent); text-decoration: none; }
+
+    @media (max-width: 600px) {
+      .stats { gap: 1.5rem; flex-wrap: wrap; }
+      .contribute { text-align: center; justify-content: center; }
     }
   </style>
 </head>
 <body>
 
 <nav>
-  <a class="nav-back" href="../../index.html">
-    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
-      <path d="M10 4L6 8l4 4"/>
-    </svg>
-    Biblioteca Psi Real
-  </a>
-  <span class="nav-title">Formulação de Caso · Persons</span>
+  <a class="nav-logo" href="index.html">Biblioteca <span>Psi</span> Real</a>
+  <div class="nav-links">
+    <a href="#materiais">Materiais</a>
+    <a href="#como-funciona">Como funciona</a>
+    <a href="https://github.com/SEU_USUARIO/biblioteca-psi-real" target="_blank">GitHub</a>
+  </div>
 </nav>
 
-<div class="layout">
+<section class="hero">
+  <div class="hero-tag">Supervisão em TCC</div>
+  <h1>Materiais clínicos<br>que fazem <em>sentido</em></h1>
+  <p class="hero-sub">Recursos estruturados e visualmente cuidados para supervisoras e terapeutas em TCC. Formulações, avaliações, técnicas — tudo em um só lugar.</p>
+  <div class="hero-actions">
+    <a href="#materiais" class="btn-primary">Explorar materiais</a>
+    <a href="https://github.com/SEU_USUARIO/biblioteca-psi-real" target="_blank" class="btn-secondary">Ver no GitHub →</a>
+  </div>
+</section>
 
-  <!-- SIDEBAR NAV -->
-  <aside class="sidebar">
-    <div class="toc-label">Neste material</div>
-    <ul class="toc-list" id="toc">
-      <li><a href="#s1"><span class="toc-num">01</span>Quem é Persons?</a></li>
-      <li><a href="#s2"><span class="toc-num">02</span>O que é formulação</a></li>
-      <li><a href="#s3"><span class="toc-num">03</span>Dois níveis</a></li>
-      <li><a href="#s4"><span class="toc-num">04</span>Os 7 componentes</a></li>
-      <li><a href="#s5"><span class="toc-num">05</span>Hipótese de trabalho</a></li>
-      <li><a href="#s6"><span class="toc-num">06</span>Construindo na prática</a></li>
-      <li><a href="#s7"><span class="toc-num">07</span>Plano de tratamento</a></li>
-      <li><a href="#s8"><span class="toc-num">08</span>Obstáculos</a></li>
-      <li><a href="#s9"><span class="toc-num">09</span>Críticas e limites</a></li>
-      <li><a href="#s10"><span class="toc-num">10</span>Referências</a></li>
-    </ul>
-  </aside>
-
-  <!-- MAIN CONTENT -->
-  <main class="content">
-
-    <div class="doc-header">
-      <div class="breadcrumb"><a href="../../index.html">Biblioteca Psi Real</a> / TCC / Formulação de Caso</div>
-      <div class="doc-tags">
-        <span class="doc-tag tag-tcc">TCC</span>
-        <span class="doc-tag tag-formulacao">Formulação de Caso</span>
-      </div>
-      <h1 class="doc-title">Formulação de Caso<br>segundo Jacqueline Persons</h1>
-      <p class="doc-intro">Um guia estruturado sobre o modelo cognitivo-comportamental de formulação de caso — da teoria à prática clínica, para supervisoras e terapeutas em TCC.</p>
-      <div class="doc-meta">
-        <div class="doc-meta-item"><strong>Referência principal:</strong> Persons, 2008</div>
-        <div class="doc-meta-item"><strong>Área:</strong> TCC / Supervisão Clínica</div>
-        <div class="doc-meta-item"><strong>Seções:</strong> 10</div>
-      </div>
-    </div>
-
-    <!-- S1 -->
-    <div class="doc-section" id="s1">
-      <div class="section-eyebrow">Seção 01</div>
-      <h2 class="sec-title">Quem é Jacqueline Persons?</h2>
-      <p class="body">Jacqueline B. Persons é psicóloga clínica e pesquisadora americana, diretora do Centro de Terapia Cognitivo-Comportamental de Oakland (California). É amplamente reconhecida como uma das principais figuras no desenvolvimento e sistematização da <em>formulação de caso</em> dentro da TCC.</p>
-      <p class="body">Sua contribuição mais influente é o livro <em>Cognitive Therapy in Practice: A Case Formulation Approach</em> (1989), atualizado em <em>The Case Formulation Approach to Cognitive-Behavior Therapy</em> (2008), referência central para clínicos e supervisores em todo o mundo.</p>
-      <div class="callout">
-        <p><strong>Por que ela importa para supervisão de TCC?</strong> Persons propõe que o terapeuta TCC não deve apenas aplicar protocolos, mas construir um mapa individualizado do paciente — a formulação — que guia cada decisão clínica, da avaliação ao término.</p>
-      </div>
-    </div>
-
-    <!-- S2 -->
-    <div class="doc-section" id="s2">
-      <div class="section-eyebrow">Seção 02</div>
-      <h2 class="sec-title">O que é formulação de caso em TCC?</h2>
-      <p class="body">A formulação de caso é uma hipótese sobre os mecanismos psicológicos que causam e mantêm os problemas de um paciente específico. Funciona como um <strong>mapa clínico individualizado</strong> que conecta os problemas do paciente com teorias cognitivo-comportamentais para guiar o tratamento.</p>
-      <div class="two-col">
-        <div class="info-box">
-          <div class="info-box-label">Diagnóstico (DSM)</div>
-          <p>Classifica sintomas em categorias. Responde: <em>"O que o paciente tem?"</em></p>
-        </div>
-        <div class="info-box">
-          <div class="info-box-label">Formulação de Caso</div>
-          <p>Explica os mecanismos individuais. Responde: <em>"Por que e como esse paciente específico sofre?"</em></p>
-        </div>
-      </div>
-      <h3 class="sub-title">Funções da formulação</h3>
-      <ul class="steps">
-        <li><div class="step-dot">1</div><div>Guiar as intervenções clínicas com base na teoria cognitivo-comportamental</div></li>
-        <li><div class="step-dot">2</div><div>Adaptar protocolos baseados em evidências à realidade individual do paciente</div></li>
-        <li><div class="step-dot">3</div><div>Ajudar o terapeuta a priorizar problemas e focos de intervenção</div></li>
-        <li><div class="step-dot">4</div><div>Prever e manejar obstáculos ao tratamento antes que eles aconteçam</div></li>
-        <li><div class="step-dot">5</div><div>Monitorar o progresso e revisar hipóteses ao longo do tempo</div></li>
-      </ul>
-    </div>
-
-    <!-- S3 -->
-    <div class="doc-section" id="s3">
-      <div class="section-eyebrow">Seção 03</div>
-      <h2 class="sec-title">Os dois níveis da formulação</h2>
-      <p class="body">Persons propõe que a formulação opera em dois níveis complementares que o terapeuta deve integrar na prática clínica:</p>
-      <div class="two-col">
-        <div class="info-box">
-          <div class="info-box-label">Nível Nomotético (do transtorno)</div>
-          <ul>
-            <li>Baseado na teoria e em evidências do transtorno</li>
-            <li>Modelos cognitivos do Pânico, Depressão, TOC etc.</li>
-            <li>Fornece o "mapa geral" do problema</li>
-            <li>Ex: modelo de Clark para o pânico</li>
-          </ul>
-        </div>
-        <div class="info-box">
-          <div class="info-box-label">Nível Idiográfico (do indivíduo)</div>
-          <ul>
-            <li>Aplicação do modelo geral ao paciente específico</li>
-            <li>Incorpora história de vida, crenças e contexto único</li>
-            <li>Personaliza o protocolo ao sujeito</li>
-            <li>Ex: por que <em>este</em> paciente tem pânico assim?</li>
-          </ul>
-        </div>
-      </div>
-      <div class="callout">
-        <p><strong>Integração clínica:</strong> Persons defende que o terapeuta parte do modelo nomotético e o refina com dados idiográficos. A formulação é sempre uma hipótese provisória e revisável.</p>
-      </div>
-    </div>
-
-    <!-- S4 -->
-    <div class="doc-section" id="s4">
-      <div class="section-eyebrow">Seção 04</div>
-      <h2 class="sec-title">Os 7 componentes do modelo</h2>
-      <p class="body">No modelo sistematizado por Persons (2008), a formulação é composta por sete elementos que juntos formam um retrato clínico completo do paciente:</p>
-      <div class="comp-grid">
-        <div class="comp-card"><div class="comp-n">01</div><div class="comp-name">Lista de problemas</div><div class="comp-desc">Inventário abrangente de todos os problemas — psicológicos, interpessoais, ocupacionais, médicos, financeiros.</div></div>
-        <div class="comp-card"><div class="comp-n">02</div><div class="comp-name">Diagnóstico</div><div class="comp-desc">Diagnósticos DSM correspondentes, fornecendo a âncora nomotética da formulação.</div></div>
-        <div class="comp-card"><div class="comp-n">03</div><div class="comp-name">Hipótese de trabalho</div><div class="comp-desc">O mecanismo central: crenças nucleares e comportamentos que conectam todos os problemas.</div></div>
-        <div class="comp-card"><div class="comp-n">04</div><div class="comp-name">Origens</div><div class="comp-desc">Experiências de vida e aprendizagens que explicam como os mecanismos se formaram.</div></div>
-        <div class="comp-card"><div class="comp-n">05</div><div class="comp-name">Precipitantes</div><div class="comp-desc">Situações atuais que disparam ou exacerbam os problemas do paciente no presente.</div></div>
-        <div class="comp-card"><div class="comp-n">06</div><div class="comp-name">Plano de tratamento</div><div class="comp-desc">Objetivos, modalidades e estratégias derivados diretamente da hipótese de trabalho.</div></div>
-        <div class="comp-card"><div class="comp-n">07</div><div class="comp-name">Obstáculos previstos</div><div class="comp-desc">Barreiras antecipadas ao tratamento — adesão, relação terapêutica, crenças do paciente.</div></div>
-      </div>
-    </div>
-
-    <!-- S5 -->
-    <div class="doc-section" id="s5">
-      <div class="section-eyebrow">Seção 05</div>
-      <h2 class="sec-title">O mecanismo central — a hipótese de trabalho</h2>
-      <p class="body">A <strong>hipótese de trabalho</strong> é o coração da formulação. Propõe um mecanismo psicológico subjacente que explica como e por que os problemas do paciente se desenvolveram e se mantêm.</p>
-      <h3 class="sub-title">Elementos da hipótese de trabalho</h3>
-      <div class="hl-row"><strong>Crenças nucleares (core beliefs):</strong> Crenças absolutas, rígidas e globais sobre si mesmo, os outros e o mundo. Ex: "Sou incompetente", "Não sou amável", "O mundo é perigoso".</div>
-      <div class="hl-row"><strong>Regras e suposições intermediárias:</strong> Crenças condicionais que conectam as crenças nucleares ao comportamento. Ex: "Se eu não for perfeito, serei rejeitado".</div>
-      <div class="hl-row"><strong>Pensamentos automáticos:</strong> Conteúdo cognitivo situacional que surge em resposta a gatilhos, derivado das crenças nucleares.</div>
-      <div class="hl-row"><strong>Comportamentos de segurança e evitação:</strong> Estratégias compensatórias que aliviam a angústia no curto prazo, mas mantêm o problema no longo prazo.</div>
-      <div class="callout callout-warn">
-        <p><strong>Atenção na supervisão:</strong> Formulações que se limitam à origem histórica sem explicar os mecanismos de manutenção atuais são incompletas. A pergunta essencial é: "O que mantém esse problema <em>agora</em>?"</p>
-      </div>
-    </div>
-
-    <!-- S6 -->
-    <div class="doc-section" id="s6">
-      <div class="section-eyebrow">Seção 06</div>
-      <h2 class="sec-title">Como construir a formulação na prática</h2>
-      <p class="body">Persons propõe uma abordagem iterativa — a formulação é construída, testada e revisada continuamente ao longo do tratamento, não é um produto fixo das primeiras sessões.</p>
-      <ul class="steps">
-        <li><div class="step-dot">1</div><div><strong>Construir a lista de problemas:</strong> Levantar todos os problemas com clareza operacional. Incluir problemas que o paciente não mencionou espontaneamente.</div></li>
-        <li><div class="step-dot">2</div><div><strong>Nomear os diagnósticos:</strong> Mapear os diagnósticos DSM e selecionar o modelo nomotético mais adequado para cada um.</div></li>
-        <li><div class="step-dot">3</div><div><strong>Formular a hipótese de trabalho:</strong> Identificar crenças nucleares e mecanismos comportamentais que conectam os problemas.</div></li>
-        <li><div class="step-dot">4</div><div><strong>Mapear as origens:</strong> Conectar os mecanismos com experiências formativas — sem tornar a formulação apenas arqueológica.</div></li>
-        <li><div class="step-dot">5</div><div><strong>Identificar precipitantes atuais:</strong> Quais situações do presente ativam os mecanismos? Isso define os alvos situacionais das intervenções.</div></li>
-        <li><div class="step-dot">6</div><div><strong>Derivar o plano de tratamento:</strong> Definir objetivos, prioridades e técnicas sempre conectados à formulação.</div></li>
-        <li><div class="step-dot">7</div><div><strong>Testar e revisar:</strong> Monitorar continuamente. Quando não funciona, revisar a formulação antes de mudar a técnica.</div></li>
-      </ul>
-      <div class="callout">
-        <p><strong>Princípio central de Persons:</strong> Quando o tratamento não avança, o primeiro passo não é trocar a técnica — é revisar a formulação. Talvez ela esteja incompleta ou equivocada.</p>
-      </div>
-    </div>
-
-    <!-- S7 -->
-    <div class="doc-section" id="s7">
-      <div class="section-eyebrow">Seção 07</div>
-      <h2 class="sec-title">Formulação e plano de tratamento</h2>
-      <p class="body">Uma das principais contribuições de Persons é mostrar como a formulação <em>deriva</em> o plano de tratamento — não como uma lista genérica de técnicas, mas como um conjunto de decisões clínicas sustentadas pela hipótese de trabalho.</p>
-      <div class="two-col">
-        <div class="info-box">
-          <div class="info-box-label">Objetivos do tratamento</div>
-          <ul>
-            <li>Redução de sintomas específicos</li>
-            <li>Mudança de crenças nucleares disfuncionais</li>
-            <li>Aquisição de habilidades comportamentais</li>
-            <li>Melhora no funcionamento em áreas identificadas</li>
-          </ul>
-        </div>
-        <div class="info-box">
-          <div class="info-box-label">Estratégias derivadas</div>
-          <ul>
-            <li>Reestruturação cognitiva das crenças identificadas</li>
-            <li>Experimentos comportamentais</li>
-            <li>Exposição quando evitação é central</li>
-            <li>Treinamento de habilidades conforme necessário</li>
-          </ul>
-        </div>
-      </div>
-      <h3 class="sub-title">Priorização dos problemas</h3>
-      <div class="hl-row"><strong>Risco imediato:</strong> comportamentos que ameaçam a vida têm prioridade absoluta.</div>
-      <div class="hl-row"><strong>Mecanismos centrais:</strong> problemas que derivam do mesmo mecanismo podem ser tratados juntos.</div>
-      <div class="hl-row"><strong>Motivação do paciente:</strong> começar por problemas que o paciente prioriza fortalece a aliança.</div>
-      <div class="hl-row"><strong>Pragmatismo:</strong> resolver o problema que está bloqueando o tratamento de outro.</div>
-    </div>
-
-    <!-- S8 -->
-    <div class="doc-section" id="s8">
-      <div class="section-eyebrow">Seção 08</div>
-      <h2 class="sec-title">Obstáculos ao tratamento</h2>
-      <p class="body">Um diferencial do modelo de Persons é a inclusão <em>antecipada</em> dos obstáculos como parte da formulação — transformando dificuldades previsíveis em alvos clínicos, não em surpresas.</p>
-      <div class="comp-grid">
-        <div class="comp-card"><div class="comp-name">Obstáculos cognitivos</div><div class="comp-desc">Crenças que interferem com o tratamento. Ex: "Mudar significa que estou fraco", "Isso nunca vai funcionar comigo".</div></div>
-        <div class="comp-card"><div class="comp-name">Obstáculos comportamentais</div><div class="comp-desc">Evitação de tarefas, não realização de experimentos, falta de adesão às tarefas de casa.</div></div>
-        <div class="comp-card"><div class="comp-name">Obstáculos relacionais</div><div class="comp-desc">Dificuldades na aliança terapêutica decorrentes das crenças nucleares ativadas na relação.</div></div>
-        <div class="comp-card"><div class="comp-name">Obstáculos externos</div><div class="comp-desc">Instabilidade financeira, relações que reforçam os problemas, limitações de acesso ao tratamento.</div></div>
-      </div>
-      <div class="callout">
-        <p><strong>Na supervisão:</strong> Quando o supervisionando relata que "o paciente não colabora", a pergunta clínica é: essa dificuldade estava prevista na formulação? Se sim, é dado clínico. Se não, a formulação precisa ser revisada.</p>
-      </div>
-    </div>
-
-    <!-- S9 -->
-    <div class="doc-section" id="s9">
-      <div class="section-eyebrow">Seção 09</div>
-      <h2 class="sec-title">Críticas e limitações do modelo</h2>
-      <div class="hl-row"><strong>Validade e confiabilidade:</strong> Estudos mostram baixa concordância entre terapeutas ao formular o mesmo caso, levantando questões sobre objetividade.</div>
-      <div class="hl-row"><strong>Tempo de construção:</strong> Formular adequadamente exige tempo que nem sempre está disponível em contextos de saúde pública.</div>
-      <div class="hl-row"><strong>Risco de super-interpretação:</strong> Sem rigor, a formulação pode se tornar especulativa — projetando teorias no paciente.</div>
-      <div class="hl-row"><strong>Tensão com protocolos:</strong> Individualizar em excesso pode afastar da intervenção com maior evidência.</div>
-      <div class="callout callout-warn">
-        <p><strong>Posição de Persons:</strong> Ela reconhece essas limitações e defende que a formulação seja sempre tratada como uma hipótese científica — provisória, falsificável e sujeita à revisão com base nos dados clínicos.</p>
-      </div>
-    </div>
-
-    <!-- S10 -->
-    <div class="doc-section" id="s10">
-      <div class="section-eyebrow">Seção 10</div>
-      <h2 class="sec-title">Referências</h2>
-      <div class="ref-item">Persons, J. B. (1989). <em>Cognitive Therapy in Practice: A Case Formulation Approach.</em> W. W. Norton & Company.</div>
-      <div class="ref-item">Persons, J. B. (2008). <em>The Case Formulation Approach to Cognitive-Behavior Therapy.</em> Guilford Press.</div>
-      <div class="ref-item">Persons, J. B., & Tompkins, M. A. (2007). Cognitive-behavioral case formulation. Em T. D. Eells (Ed.), <em>Handbook of Psychotherapy Case Formulation</em> (2ª ed.). Guilford Press.</div>
-      <div class="ref-item">Beck, J. S. (2021). <em>Cognitive Behavior Therapy: Basics and Beyond</em> (3ª ed.). Guilford Press.</div>
-      <div class="ref-item">Eells, T. D. (2007). <em>Handbook of Psychotherapy Case Formulation</em> (2ª ed.). Guilford Press.</div>
-    </div>
-
-  </main>
+<div class="stats">
+  <div class="stat">
+    <div class="stat-number">1</div>
+    <div class="stat-label">Material publicado</div>
+  </div>
+  <div class="stat">
+    <div class="stat-number">TCC</div>
+    <div class="stat-label">Área de foco</div>
+  </div>
+  <div class="stat">
+    <div class="stat-number">∞</div>
+    <div class="stat-label">Acesso gratuito</div>
+  </div>
 </div>
 
-<script>
-  const sections = document.querySelectorAll('.doc-section');
-  const links = document.querySelectorAll('.toc-list a');
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        links.forEach(l => l.classList.remove('active'));
-        const link = document.querySelector(`.toc-list a[href="#${e.target.id}"]`);
-        if (link) link.classList.add('active');
-      }
-    });
-  }, { rootMargin: '-20% 0px -70% 0px' });
-  sections.forEach(s => obs.observe(s));
-</script>
+<section class="section" id="materiais">
+  <div class="section-header">
+    <div class="section-eyebrow">Materiais disponíveis</div>
+    <h2>Formulações, técnicas<br>e recursos clínicos</h2>
+    <p class="section-sub">Cada material é um guia completo, navegável e pronto para usar em supervisão.</p>
+  </div>
+
+  <div class="cards-grid">
+
+    <!-- CARD 1 — Persons (publicado) -->
+    <a href="materiais/persons-formulacao-caso/index.html" class="card">
+      <div class="card-thumb card-thumb-tcc">
+        🧠
+        <span class="card-thumb-label label-tcc">TCC · Formulação</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Formulação de Caso — Jacqueline Persons</div>
+        <div class="card-desc">Os 7 componentes do modelo, hipótese de trabalho, crenças nucleares e como derivar o plano de tratamento a partir da formulação.</div>
+        <div class="card-footer">
+          <span class="card-author">Persons, 2008</span>
+          <span class="card-cta">Acessar
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </span>
+        </div>
+      </div>
+    </a>
+
+    <!-- CARD 2 — Em breve -->
+    <div class="card card-soon">
+      <div class="card-thumb card-thumb-avaliacao">
+        📋
+        <span class="card-thumb-label label-soon">Em breve</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Avaliação Cognitivo-Comportamental</div>
+        <div class="card-desc">Estrutura da avaliação inicial em TCC: anamnese, inventários, hierarquia de medos e formulação da queixa principal.</div>
+        <div class="card-footer">
+          <span class="card-author">Beck, 2021</span>
+          <span class="card-cta">Em breve</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 3 — Em breve -->
+    <div class="card card-soon">
+      <div class="card-thumb card-thumb-soon">
+        💭
+        <span class="card-thumb-label label-soon">Em breve</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Reestruturação Cognitiva</div>
+        <div class="card-desc">Técnicas de identificação e modificação de pensamentos automáticos e crenças intermediárias na prática clínica.</div>
+        <div class="card-footer">
+          <span class="card-author">Beck & Clark</span>
+          <span class="card-cta">Em breve</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 4 — Em breve -->
+    <div class="card card-soon">
+      <div class="card-thumb card-thumb-soon">
+        🔄
+        <span class="card-thumb-label label-soon">Em breve</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Exposição e Prevenção de Rituais</div>
+        <div class="card-desc">Protocolo de EPR para TOC e transtornos de ansiedade: hierarquia, graduação e manejo do sofrimento durante a exposição.</div>
+        <div class="card-footer">
+          <span class="card-author">Foa & Kozak</span>
+          <span class="card-cta">Em breve</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 5 — Em breve -->
+    <div class="card card-soon">
+      <div class="card-thumb card-thumb-soon">
+        🤝
+        <span class="card-thumb-label label-soon">Em breve</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Aliança Terapêutica em TCC</div>
+        <div class="card-desc">Como construir e manejar a relação terapêutica dentro do modelo cognitivo-comportamental — rupturas e reparação.</div>
+        <div class="card-footer">
+          <span class="card-author">Safran & Segal</span>
+          <span class="card-cta">Em breve</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 6 — Em breve -->
+    <div class="card card-soon">
+      <div class="card-thumb card-thumb-soon">
+        📊
+        <span class="card-thumb-label label-soon">Em breve</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Monitoramento de Progresso</div>
+        <div class="card-desc">Uso sistemático de medidas de desfecho em TCC: quando e como usar inventários, escalas e gráficos de progresso.</div>
+        <div class="card-footer">
+          <span class="card-author">Lambert & Ogles</span>
+          <span class="card-cta">Em breve</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider" />
+
+<section class="section" id="como-funciona">
+  <div class="section-header">
+    <div class="section-eyebrow">Como funciona</div>
+    <h2>Simples de usar,<br>fácil de contribuir</h2>
+  </div>
+  <div class="how-grid">
+    <div class="how-step">
+      <div class="how-num">01</div>
+      <div class="how-title">Acesse qualquer material</div>
+      <div class="how-desc">Cada material é uma página HTML independente — funciona no celular, tablet e computador, sem login ou instalação.</div>
+    </div>
+    <div class="how-step">
+      <div class="how-num">02</div>
+      <div class="how-title">Use na supervisão</div>
+      <div class="how-desc">Abra durante a sessão de supervisão, navegue pelo índice interativo e use as seções como roteiro de discussão clínica.</div>
+    </div>
+    <div class="how-step">
+      <div class="how-num">03</div>
+      <div class="how-title">Contribua com novos materiais</div>
+      <div class="how-desc">Crie um fork no GitHub, adicione seu material em HTML seguindo o template e abra um Pull Request. Toda contribuição é bem-vinda.</div>
+    </div>
+    <div class="how-step">
+      <div class="how-num">04</div>
+      <div class="how-title">Acesso gratuito para sempre</div>
+      <div class="how-desc">Open source e publicado via GitHub Pages. Nenhuma barreira de acesso — para supervisoras, estagiários e pesquisadores.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="contribute">
+    <div>
+      <h3>Tem um material para contribuir?</h3>
+      <p>A biblioteca cresce com a comunidade. Se você tem um material estruturado sobre TCC que gostaria de compartilhar, abre um PR no GitHub.</p>
+    </div>
+    <a href="https://github.com/SEU_USUARIO/biblioteca-psi-real" target="_blank" class="btn-white">Contribuir no GitHub →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Biblioteca <span>Psi</span> Real</div>
+  <p>Recursos clínicos em TCC · Acesso aberto · <a href="https://github.com/SEU_USUARIO/biblioteca-psi-real" target="_blank">GitHub</a></p>
+</footer>
 
 </body>
 </html>
