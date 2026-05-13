@@ -2,28 +2,34 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aliança Terapêutica em TCC | Biblioteca Psi Real</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --rose: #8B4A52;
-      --rose-light: #F8EDEB;
-      --rose-hover: #FBF4F2;
-      --rose-border: #F0E8E3;
-      --rose-mid: #D4909A;
+      --rose: #8B3A4A;
+      --rose-2: #C4607A;
+      --rose-3: #E8899E;
+      --grad: linear-gradient(135deg, #8B3A4A 0%, #C4607A 55%, #E8899E 100%);
+      --rose-light: #FCEEF1;
+      --rose-hover: #FDF5F7;
+      --rose-border: #F2DCE1;
+      --rose-mid: #C4607A;
       --ink: #2A1A18;
       --ink-muted: #8A7370;
       --ink-faint: #C4A8A4;
-      --bg: #FAFAFA;
+      --bg: #FAF6F7;
       --white: #FFFFFF;
-      --border: #EDE6E0;
-      --surface: #F5F2EF;
-      --radius: 12px;
-      --radius-sm: 8px;
+      --border: #EDE0E4;
+      --surface: #F5EEF1;
+      --radius: 16px;
+      --radius-sm: 10px;
     }
     html { scroll-behavior: smooth; }
-    body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--ink); }
+    body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; background: var(--bg); color: var(--ink); }
 
     nav {
       position: sticky; top: 0; z-index: 100;
@@ -48,7 +54,7 @@
     .sidebar::-webkit-scrollbar { width: 3px; }
     .sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
 
-    .toc-label { font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 0.75rem; padding: 0 8px; }
+    .toc-label { font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 0.75rem; padding: 0 8px; }
     .toc-list { list-style: none; }
     .toc-list a {
       display: block; font-size: 13px; color: var(--ink-muted);
@@ -75,8 +81,9 @@
     .tag-relacao { background: #F5F0FF; color: #6B45A8; border: 1px solid #D5C8F0; }
 
     h1.doc-title {
+      font-family: 'Instrument Serif', Georgia, serif;
       font-size: clamp(24px, 3.5vw, 36px); font-weight: 500;
-      line-height: 1.15; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 0.9rem;
+      line-height: 1.15; letter-spacing: -0.025em; color: var(--ink); margin-bottom: 0.9rem;
     }
     .doc-intro { font-size: 15px; color: var(--ink-muted); line-height: 1.75; max-width: 580px; }
     .doc-meta { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 1.25rem; }
@@ -84,13 +91,14 @@
     .doc-meta-item strong { color: var(--ink-muted); font-weight: 500; }
 
     .doc-section { margin-bottom: 3.5rem; scroll-margin-top: 78px; }
-    .sec-eyebrow { font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 0.3rem; }
+    .sec-eyebrow { font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 0.3rem; }
     h2.sec-title {
+      font-family: 'Instrument Serif', Georgia, serif;
       font-size: clamp(18px, 2.5vw, 24px); font-weight: 500; letter-spacing: -0.01em;
       color: var(--ink); margin-bottom: 1.1rem;
       padding-bottom: 0.65rem; border-bottom: 1px solid var(--border);
     }
-    h3.sub-title { font-size: 15px; font-weight: 500; color: var(--ink); margin: 1.75rem 0 0.65rem; }
+    h3.sub-title { font-size: 15px; font-weight: 600; color: var(--ink); margin: 1.75rem 0 0.65rem; }
     p.body { font-size: 15px; line-height: 1.8; color: var(--ink); margin-bottom: 0.9rem; }
 
     .callout {
