@@ -90,14 +90,14 @@
     .hero h1 {
       font-family: 'Instrument Serif', Georgia, serif;
       font-size: clamp(36px, 6vw, 62px);
-      font-weight: 400; line-height: 1.08; letter-spacing: -0.025em;
+      font-weight: 700; line-height: 1.05; letter-spacing: -0.03em;
       color: var(--ink); margin-bottom: 1.25rem;
     }
-    .hero h1 em { font-style: italic; color: var(--r2); }
+    .hero h1 em { font-style: italic; color: var(--r1); }
     .hero-sub {
       font-size: 16px; line-height: 1.75;
       color: var(--ink-3); max-width: 480px; margin: 0 auto 2.5rem;
-      font-weight: 300;
+      font-weight: 400;
     }
     .hero-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
     .btn-white {
@@ -115,7 +115,7 @@
       border-radius: var(--radius-sm); border: 1.5px solid var(--border);
       text-decoration: none; transition: border-color 0.15s, color 0.15s;
     }
-    .btn-ghost:hover { border-color: var(--r2); color: var(--r2); }
+    .btn-ghost:hover { border-color: var(--r2); color: var(--r1); }
 
     /* ── STATS ── */
     .stats {
@@ -131,26 +131,26 @@
     .stat:last-child { border-right: none; }
     .stat-n {
       font-family: 'Instrument Serif', serif;
-      font-size: 32px; font-weight: 400;
+      font-size: 32px; font-weight: 600; color: var(--r1);
       background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       background-clip: text; letter-spacing: -0.025em;
     }
-    .stat-l { font-size: 12px; color: var(--ink-3); margin-top: 2px; font-weight: 300; }
+    .stat-l { font-size: 12px; color: var(--ink-3); margin-top: 2px; font-weight: 400; }
 
     /* ── SECTIONS ── */
     .section { max-width: 1080px; margin: 0 auto; padding: 5rem 2.5rem; }
     .sec-eyebrow {
       display: inline-flex; align-items: center; gap: 7px;
-      font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
       color: var(--r1); margin-bottom: 0.6rem;
     }
     .sec-eyebrow::before { content: ''; width: 18px; height: 2px; background: var(--grad); border-radius: 1px; }
     h2 {
       font-family: 'Instrument Serif', serif;
-      font-size: clamp(26px, 4vw, 38px); font-weight: 400;
-      letter-spacing: -0.025em; color: var(--ink); margin-bottom: 0.5rem; line-height: 1.15;
+      font-size: clamp(26px, 4vw, 40px); font-weight: 700;
+      letter-spacing: -0.025em; color: var(--ink); margin-bottom: 0.5rem; line-height: 1.12;
     }
-    .sec-sub { font-size: 14px; color: var(--ink-3); margin-bottom: 2.5rem; font-weight: 300; line-height: 1.7; }
+    .sec-sub { font-size: 14px; color: var(--ink-3); margin-bottom: 2.5rem; font-weight: 400; line-height: 1.7; }
 
     /* ── CARDS GRID ── */
     .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 16px; }
@@ -202,7 +202,7 @@
 
     .card-body { padding: 1.35rem 1.5rem 1.6rem; flex: 1; display: flex; flex-direction: column; }
     .card-title { font-size: 15.5px; font-weight: 600; color: var(--ink); margin-bottom: 0.45rem; line-height: 1.3; letter-spacing: -0.01em; }
-    .card-desc { font-size: 13px; color: var(--ink-3); line-height: 1.65; margin-bottom: 1rem; font-weight: 300; flex: 1; }
+    .card-desc { font-size: 13px; color: var(--ink-3); line-height: 1.65; margin-bottom: 1rem; font-weight: 400; flex: 1; }
     .card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: auto; }
     .card-author { font-size: 11px; color: var(--ink-4); font-style: italic; }
     .card-cta {
@@ -240,7 +240,7 @@
       margin-bottom: 1rem;
     }
     .how-t { font-size: 14.5px; font-weight: 500; color: var(--ink); margin-bottom: 0.4rem; }
-    .how-d { font-size: 13px; color: var(--ink-3); line-height: 1.7; font-weight: 300; }
+    .how-d { font-size: 13px; color: var(--ink-3); line-height: 1.7; font-weight: 400; }
 
     /* ── APP BANNER ── */
     .app-banner {
@@ -261,7 +261,7 @@
     .app-banner-icon svg { width: 26px; height: 26px; stroke: #fff; fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
     .app-banner-label { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--r1); margin-bottom: 3px; }
     .app-banner-title { font-size: 16px; font-weight: 500; color: var(--ink); margin-bottom: 3px; letter-spacing: -0.01em; }
-    .app-banner-desc { font-size: 13px; color: var(--ink-3); font-weight: 300; }
+    .app-banner-desc { font-size: 13px; color: var(--ink-3); font-weight: 400; }
     .app-banner-arrow { font-size: 14px; font-weight: 600; color: var(--r1); white-space: nowrap; flex-shrink: 0; margin-left: auto; }
 
     /* ── CTA BOX ── */
@@ -288,7 +288,7 @@
       border-radius: 50%;
     }
     .cta-box h3 { font-family: 'Instrument Serif', serif; font-size: 24px; font-weight: 400; color: #fff; margin-bottom: 0.5rem; }
-    .cta-box p { font-size: 13.5px; color: rgba(255,255,255,0.75); max-width: 420px; font-weight: 300; line-height: 1.65; }
+    .cta-box p { font-size: 13.5px; color: rgba(255,255,255,0.82); max-width: 420px; font-weight: 400; line-height: 1.65; }
     .btn-cta-white {
       position: relative; z-index: 1;
       background: #fff; color: var(--r1);
@@ -313,7 +313,7 @@
       font-size: 18px; font-weight: 400; color: var(--ink); margin-bottom: 6px;
     }
     .footer-logo span { color: var(--r1); }
-    footer p { font-size: 12px; color: var(--ink-4); font-weight: 300; }
+    footer p { font-size: 12px; color: var(--ink-4); font-weight: 400; }
     footer a { color: var(--r1); text-decoration: none; }
     footer a:hover { text-decoration: underline; }
 
@@ -360,7 +360,7 @@
   </div>
   <div style="flex:1;min-width:0;">
     <div style="font-size:13px;font-weight:500;color:#1C0F13;">Instalar Psi Real</div>
-    <div style="font-size:11px;color:#9E7882;font-weight:300;">Acesse offline, como um app</div>
+    <div style="font-size:11px;color:#9E7882;font-weight:400;">Acesse offline, como um app</div>
   </div>
   <button onclick="installPWA()" style="background:linear-gradient(135deg,#3D2028,#7A4A55);color:#fff;border:none;border-radius:8px;padding:7px 14px;font-size:12px;font-weight:500;cursor:pointer;white-space:nowrap;font-family:inherit;">Instalar</button>
   <button onclick="dismissInstallBanner()" style="background:none;border:none;color:#C9ADB4;cursor:pointer;padding:4px;line-height:1;" aria-label="Fechar">✕</button>
