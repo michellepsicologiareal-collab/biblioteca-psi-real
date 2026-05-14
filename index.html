@@ -71,59 +71,51 @@
     /* ── HERO ── */
     .hero-wrap {
       position: relative; overflow: hidden;
-      background: var(--grad);
+      background: #FFFFFF;
       padding: 6rem 2rem 5rem;
+      border-bottom: 1px solid var(--border);
     }
-    .hero-wrap::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    }
-    .hero-wrap::after {
-      content: '';
-      position: absolute; bottom: -2px; left: 0; right: 0; height: 80px;
-      background: linear-gradient(to bottom, transparent, var(--bg));
-    }
+    .hero-wrap::before { content: none; }
+    .hero-wrap::after { content: none; }
     .hero-inner { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; text-align: center; }
     .hero-tag {
       display: inline-flex; align-items: center; gap: 7px;
       font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
-      color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.15);
-      border: 1px solid rgba(255,255,255,0.25);
+      color: var(--ink-2); background: var(--r-light);
+      border: 1px solid var(--r-border);
       padding: 5px 15px; border-radius: 99px; margin-bottom: 2rem;
-      backdrop-filter: blur(8px);
     }
-    .hero-tag::before { content: ''; width: 6px; height: 6px; background: #FFD9E0; border-radius: 50%; animation: pulse 2s infinite; }
+    .hero-tag::before { content: ''; width: 6px; height: 6px; background: var(--r2); border-radius: 50%; animation: pulse 2s infinite; }
     @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.6;transform:scale(0.85)} }
     .hero h1 {
       font-family: 'Instrument Serif', Georgia, serif;
       font-size: clamp(36px, 6vw, 62px);
       font-weight: 400; line-height: 1.08; letter-spacing: -0.025em;
-      color: #fff; margin-bottom: 1.25rem;
+      color: var(--ink); margin-bottom: 1.25rem;
     }
-    .hero h1 em { font-style: italic; color: #FFD9E0; }
+    .hero h1 em { font-style: italic; color: var(--r2); }
     .hero-sub {
       font-size: 16px; line-height: 1.75;
-      color: rgba(255,255,255,0.78); max-width: 480px; margin: 0 auto 2.5rem;
+      color: var(--ink-3); max-width: 480px; margin: 0 auto 2.5rem;
       font-weight: 300;
     }
     .hero-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
     .btn-white {
-      background: #fff; color: var(--r1);
-      font-size: 14px; font-weight: 500; padding: 12px 24px;
+      background: var(--grad); color: #fff;
+      font-size: 14px; font-weight: 500; padding: 12px 28px;
       border-radius: var(--radius-sm); text-decoration: none; font-family: inherit;
       border: none; cursor: pointer;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-      transition: transform 0.15s, box-shadow 0.15s;
+      box-shadow: var(--shadow-hover);
+      transition: transform 0.15s, opacity 0.15s;
     }
-    .btn-white:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(0,0,0,0.2); }
+    .btn-white:hover { transform: translateY(-1px); opacity: 0.92; }
     .btn-ghost {
-      background: rgba(255,255,255,0.12); color: #fff;
+      background: transparent; color: var(--ink-2);
       font-size: 14px; font-weight: 400; padding: 11px 22px;
-      border-radius: var(--radius-sm); border: 1px solid rgba(255,255,255,0.3);
-      text-decoration: none; transition: background 0.15s; backdrop-filter: blur(8px);
+      border-radius: var(--radius-sm); border: 1.5px solid var(--border);
+      text-decoration: none; transition: border-color 0.15s, color 0.15s;
     }
-    .btn-ghost:hover { background: rgba(255,255,255,0.22); }
+    .btn-ghost:hover { border-color: var(--r2); color: var(--r2); }
 
     /* ── STATS ── */
     .stats {
