@@ -10,26 +10,26 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --r1: #8B3A4A;
-      --r2: #C4607A;
-      --r3: #E8899E;
-      --r-light: #FCEEF1;
-      --r-pale: #FDF5F7;
-      --r-border: #F2DCE1;
-      --grad: linear-gradient(135deg, #8B3A4A 0%, #C4607A 55%, #E8899E 100%);
-      --grad-subtle: linear-gradient(135deg, #FDF0F3 0%, #FBE8EE 50%, #F7DCE6 100%);
-      --ink: #1C0F13;
-      --ink-2: #5C3A44;
-      --ink-3: #9E7882;
-      --ink-4: #C9ADB4;
-      --bg: #FAF6F7;
+      --r1: #A84D6A;
+      --r2: #D4849A;
+      --r3: #EDBAC6;
+      --r-light: #FCEEF3;
+      --r-pale: #FDF7F9;
+      --r-border: #F4DDE5;
+      --grad: linear-gradient(135deg, #C06B87 0%, #D9929F 45%, #EDB8C3 100%);
+      --grad-subtle: linear-gradient(135deg, #FDF2F5 0%, #FAECF0 50%, #F6E4EB 100%);
+      --ink: #2A1520;
+      --ink-2: #6B3A4A;
+      --ink-3: #A87A86;
+      --ink-4: #D4B0B8;
+      --bg: #FCF8F9;
       --white: #FFFFFF;
-      --border: #EDE0E4;
-      --surface: #F5EEF1;
+      --border: #EFE2E7;
+      --surface: #F7F0F3;
       --radius: 16px;
       --radius-sm: 10px;
-      --shadow-card: 0 2px 12px rgba(139,58,74,0.08), 0 1px 3px rgba(139,58,74,0.05);
-      --shadow-hover: 0 12px 40px rgba(139,58,74,0.18), 0 4px 12px rgba(139,58,74,0.10);
+      --shadow-card: 0 2px 12px rgba(192,107,135,0.08), 0 1px 3px rgba(192,107,135,0.05);
+      --shadow-hover: 0 12px 40px rgba(192,107,135,0.16), 0 4px 12px rgba(192,107,135,0.09);
     }
     html { scroll-behavior: smooth; }
     body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.6; -webkit-font-smoothing: antialiased; }
@@ -49,7 +49,7 @@
       width: 33px; height: 33px;
       background: var(--grad);
       border-radius: 9px; display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 3px 10px rgba(139,58,74,0.35);
+      box-shadow: 0 3px 10px rgba(192,107,135,0.28);
     }
     .nav-logo-icon svg { width: 17px; height: 17px; stroke: #fff; fill: none; stroke-width: 1.8; }
     .nav-logo-text { font-size: 16px; font-weight: 500; color: var(--ink); letter-spacing: -0.01em; }
@@ -64,7 +64,7 @@
     .nav-links .nav-cta {
       background: var(--grad); color: #fff !important;
       font-weight: 500; padding: 7px 15px;
-      box-shadow: 0 2px 8px rgba(139,58,74,0.28);
+      box-shadow: 0 2px 8px rgba(192,107,135,0.22);
     }
     .nav-links .nav-cta:hover { opacity: 0.9; background: var(--grad); }
 
@@ -264,7 +264,7 @@
       width: 52px; height: 52px; flex-shrink: 0;
       background: var(--grad); border-radius: 13px;
       display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 4px 12px rgba(139,58,74,0.3);
+      box-shadow: 0 4px 12px rgba(192,107,135,0.24);
     }
     .app-banner-icon svg { width: 26px; height: 26px; stroke: #fff; fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
     .app-banner-label { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--r1); margin-bottom: 3px; }
@@ -279,7 +279,7 @@
       display: flex; align-items: center; justify-content: space-between;
       gap: 2rem; flex-wrap: wrap;
       position: relative; overflow: hidden;
-      box-shadow: 0 8px 40px rgba(139,58,74,0.3);
+      box-shadow: 0 8px 40px rgba(192,107,135,0.24);
     }
     .cta-box::before {
       content: '';
@@ -330,7 +330,7 @@
       display: none; position: fixed; bottom: 1.25rem; left: 50%;
       transform: translateX(-50%); z-index: 9999;
       background: var(--white); border: 1px solid var(--r-border);
-      border-radius: var(--radius); box-shadow: 0 8px 40px rgba(139,58,74,0.2);
+      border-radius: var(--radius); box-shadow: 0 8px 40px rgba(192,107,135,0.16);
       padding: 0.9rem 1.1rem; align-items: center; gap: 0.9rem;
       max-width: 360px; width: calc(100% - 2rem);
     }
@@ -349,7 +349,7 @@
   </style>
   <!-- PWA -->
   <link rel="manifest" href="/biblioteca-psi-real/manifest.json" />
-  <meta name="theme-color" content="#8B3A4A" />
+  <meta name="theme-color" content="#C06B87" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
@@ -362,15 +362,15 @@
 <body>
 
 <!-- PWA Install Banner -->
-<div id="pwa-install-banner" style="display:none; position:fixed; bottom:1.25rem; left:50%; transform:translateX(-50%); z-index:9999; background:#fff; border:1px solid #F2DCE1; border-radius:16px; box-shadow:0 8px 40px rgba(139,58,74,0.2); padding:0.9rem 1.1rem; align-items:center; gap:0.9rem; max-width:360px; width:calc(100% - 2rem);">
-  <div style="width:38px;height:38px;background:linear-gradient(135deg,#8B3A4A,#C4607A);border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+<div id="pwa-install-banner" style="display:none; position:fixed; bottom:1.25rem; left:50%; transform:translateX(-50%); z-index:9999; background:#fff; border:1px solid #F4DDE5; border-radius:16px; box-shadow:0 8px 40px rgba(192,107,135,0.16); padding:0.9rem 1.1rem; align-items:center; gap:0.9rem; max-width:360px; width:calc(100% - 2rem);">
+  <div style="width:38px;height:38px;background:linear-gradient(135deg,#C06B87,#D4849A);border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
     <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6s4-2 11-2 11 2 11 2v13s-4-2-11-2S1 19 1 19z"/><line x1="12" y1="4" x2="12" y2="17"/></svg>
   </div>
   <div style="flex:1;min-width:0;">
     <div style="font-size:13px;font-weight:500;color:#1C0F13;">Instalar Psi Real</div>
     <div style="font-size:11px;color:#9E7882;font-weight:300;">Acesse offline, como um app</div>
   </div>
-  <button onclick="installPWA()" style="background:linear-gradient(135deg,#8B3A4A,#C4607A);color:#fff;border:none;border-radius:8px;padding:7px 14px;font-size:12px;font-weight:500;cursor:pointer;white-space:nowrap;font-family:inherit;">Instalar</button>
+  <button onclick="installPWA()" style="background:linear-gradient(135deg,#C06B87,#D4849A);color:#fff;border:none;border-radius:8px;padding:7px 14px;font-size:12px;font-weight:500;cursor:pointer;white-space:nowrap;font-family:inherit;">Instalar</button>
   <button onclick="dismissInstallBanner()" style="background:none;border:none;color:#C9ADB4;cursor:pointer;padding:4px;line-height:1;" aria-label="Fechar">✕</button>
 </div>
 
