@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
@@ -243,6 +243,28 @@
     .how-d { font-size: 13px; color: var(--ink-3); line-height: 1.7; font-weight: 400; }
 
     /* ── APP BANNER ── */
+    .ecosystem-grid { display: grid; grid-template-columns: minmax(0,1.15fr) minmax(0,.85fr); gap: 1rem; margin-top: 1.8rem; }
+    .product-card {
+      display: flex; flex-direction: column; justify-content: space-between; gap: 1.2rem;
+      min-height: 250px; padding: 2rem; border-radius: var(--radius);
+      border: 1.5px solid var(--r-border); background: var(--white);
+      text-decoration: none; color: inherit; box-shadow: var(--shadow-card);
+      transition: transform .18s, box-shadow .18s, border-color .18s;
+    }
+    .product-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); border-color: var(--r3); }
+    .product-card.featured { background: linear-gradient(135deg, #3D2028 0%, #7A4A55 100%); color: #fff; border-color: transparent; }
+    .product-kicker { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--r1); }
+    .product-card.featured .product-kicker { color: #F2E4D4; }
+    .product-title { font-family: 'Instrument Serif', serif; font-size: clamp(26px,3vw,36px); line-height: 1.05; color: var(--ink); }
+    .product-card.featured .product-title { color: #fff; }
+    .product-copy { color: var(--ink-3); font-size: 14px; line-height: 1.7; max-width: 620px; }
+    .product-card.featured .product-copy { color: rgba(255,255,255,.82); }
+    .product-tags { display: flex; gap: .5rem; flex-wrap: wrap; }
+    .product-tags span { border: 1px solid var(--r-border); background: var(--bg-soft); color: var(--r1); border-radius: 999px; padding: .45rem .7rem; font-size: 12px; font-weight: 600; }
+    .product-card.featured .product-tags span { border-color: rgba(255,255,255,.18); background: rgba(255,255,255,.1); color: #fff; }
+    .product-action { display: inline-flex; align-items: center; gap: .4rem; font-size: 14px; font-weight: 700; color: var(--r1); }
+    .product-card.featured .product-action { color: #fff; }
+    @media (max-width: 760px) { .ecosystem-grid { grid-template-columns: 1fr; } .product-card { min-height: auto; padding: 1.5rem; } }
     .app-banner {
       display: flex; align-items: center; gap: 1.5rem;
       background: var(--white); border: 1.5px solid var(--r-border);
@@ -340,7 +362,7 @@
     }
   </style>
   <!-- PWA -->
-  <link rel="manifest" href="/biblioteca-psi-real/manifest.json" />
+  <link rel="manifest" href="/psireal-hub/biblioteca-tcc/manifest.json" />
   <meta name="theme-color" content="#3D2028" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -349,7 +371,7 @@
   <link rel="apple-touch-icon" href="./icons/icon-192.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png" />
   <link rel="icon" type="image/png" sizes="512x512" href="./icons/icon-512.png" />
-  <link rel="sitemap" type="application/xml" href="/biblioteca-psi-real/sitemap.xml" />
+  <link rel="sitemap" type="application/xml" href="/psireal-hub/biblioteca-tcc/sitemap.xml" />
 </head>
 <body>
 
@@ -367,17 +389,18 @@
 </div>
 
 <nav>
-  <a class="nav-logo" href="/biblioteca-psi-real/index.html">
+  <a class="nav-logo" href="/psireal-hub/biblioteca-tcc/index.html">
     <div class="nav-logo-icon">
       <svg viewBox="0 0 24 24"><path d="M12 3c-1.5 0-3 .6-4 1.7C6.8 6 6 7.5 6 9c0 1.2.4 2.3 1 3.2-.3.6-.5 1.2-.5 1.8 0 2.2 2 4 4.5 4s4.5-1.8 4.5-4c0-.6-.2-1.2-.5-1.8.6-.9 1-2 1-3.2 0-1.5-.8-3-2-4.3C12.9 3.5 12 3 12 3z"/><path d="M9 15.5c0 1 1.3 1.5 3 1.5s3-.5 3-1.5"/></svg>
     </div>
     <span class="nav-logo-text">Biblioteca Psi<span>Real</span></span>
   </a>
   <div class="nav-links">
+    <a href="/psireal-hub/index.html">Voltar ao site</a>
     <a href="#materiais">Materiais</a>
     <a href="./resenhas/">Resenhas</a>
     <a href="#como-funciona">Como funciona</a>
-    <a href="https://psireal.app/" target="_blank" class="nav-cta">Psi Real App ↗</a>
+    <a href="https://michellepsicologiareal-collab.github.io/psireal-clinica/index.html" class="nav-cta">PsiReal Clínica</a><a href="https://psireal.app/" target="_blank">psireal.app</a>
     <a href="https://wa.me/5511947388423" target="_blank">WhatsApp</a>
   </div>
 </nav>
@@ -387,10 +410,11 @@
   <div class="hero-inner">
     <div class="hero-tag">Supervisão em TCC · Acesso livre</div>
     <h1>Materiais clínicos<br>que fazem <em>sentido</em></h1>
-    <p class="hero-sub">Recursos estruturados e visualmente cuidados para supervisoras e terapeutas em TCC. Formulações, avaliações, técnicas — tudo em um só lugar.</p>
+    <p class="hero-sub">Materiais gratuitos para estudo e prática clínica. Quando a psicóloga quiser aplicar inventários, acompanhar evolução e organizar pacientes, ela segue para o PsiReal Clínica.</p>
     <div class="hero-actions">
       <a href="#materiais" class="btn-white">Explorar materiais</a>
-      <a href="https://wa.me/5511947388423" target="_blank" class="btn-ghost">Falar no WhatsApp →</a>
+      <a href="https://michellepsicologiareal-collab.github.io/psireal-clinica/index.html" class="btn-ghost">Conhecer PsiReal Clínica →</a>
+      <a href="https://wa.me/5511947388423" target="_blank" class="btn-ghost">WhatsApp →</a>
     </div>
   </div>
 </section>
@@ -411,7 +435,7 @@
   <div class="cards-grid">
 
     <!-- FORMULAÇÃO DE CASO — card destaque -->
-    <a href="/biblioteca-psi-real/materiais/persons-formulacao-caso/index.html" class="card card-featured">
+    <a href="/psireal-hub/biblioteca-tcc/materiais/persons-formulacao-caso/index.html" class="card card-featured">
       <div class="card-thumb card-thumb-active" style="min-height:200px;">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width:52px;height:52px;">
           <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.46 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.44-4.14z"/>
@@ -430,7 +454,7 @@
     </a>
 
     <!-- AVALIAÇÃO TCC -->
-    <a class="card" href="/biblioteca-psi-real/materiais/avaliacao-tcc/index.html">
+    <a class="card" href="/psireal-hub/biblioteca-tcc/materiais/avaliacao-tcc/index.html">
       <div class="card-thumb card-thumb-active">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M9 12h6M9 16h4"/>
@@ -448,7 +472,7 @@
     </a>
 
     <!-- REESTRUTURAÇÃO COGNITIVA -->
-    <a class="card" href="/biblioteca-psi-real/materiais/reestruturacao-cognitiva/index.html">
+    <a class="card" href="/psireal-hub/biblioteca-tcc/materiais/reestruturacao-cognitiva/index.html">
       <div class="card-thumb card-thumb-active">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 10h.01M12 10h.01M16 10h.01"/>
@@ -466,7 +490,7 @@
     </a>
 
     <!-- EXPOSIÇÃO EPR -->
-    <a class="card" href="/biblioteca-psi-real/materiais/exposicao-epr/index.html">
+    <a class="card" href="/psireal-hub/biblioteca-tcc/materiais/exposicao-epr/index.html">
       <div class="card-thumb card-thumb-active">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/>
@@ -484,7 +508,7 @@
     </a>
 
     <!-- ALIANÇA TERAPÊUTICA -->
-    <a href="/biblioteca-psi-real/materiais/alianca-terapeutica/index.html" class="card">
+    <a href="/psireal-hub/biblioteca-tcc/materiais/alianca-terapeutica/index.html" class="card">
       <div class="card-thumb card-thumb-active">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
@@ -502,7 +526,7 @@
     </a>
 
     <!-- MONITORAMENTO DE PROGRESSO — NOVO! -->
-    <a href="/biblioteca-psi-real/materiais/monitoramento-progresso/index.html" class="card">
+    <a href="/psireal-hub/biblioteca-tcc/materiais/monitoramento-progresso/index.html" class="card">
       <div class="card-thumb card-thumb-active">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/>
@@ -554,18 +578,30 @@
   </div>
 </section>
 
-<section class="section" style="padding-top:0;">
-  <a href="https://psireal.app/" target="_blank" class="app-banner">
-    <div class="app-banner-icon">
-      <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 7h4M7 11h2"/><rect x="13" y="7" width="4" height="5" rx="1"/></svg>
-    </div>
-    <div style="flex:1;min-width:0;">
-      <div class="app-banner-label">Conheça o app</div>
-      <div class="app-banner-title">Psi Real — Gestão Inteligente para Psicólogos</div>
-      <div class="app-banner-desc">Prontuário, agenda, financeiro e supervisão integrada. Tudo pensado para a prática clínica.</div>
-    </div>
-    <div class="app-banner-arrow">Conhecer →</div>
-  </a>
+<section class="section" id="produtos" style="padding-top:0;">
+  <div class="sec-eyebrow">Depois da biblioteca</div>
+  <h2>Materiais, inventários<br>e gestão clínica conectados</h2>
+  <p class="sec-sub">A Biblioteca PsiReal é a porta de entrada gratuita. Para uso profissional contínuo, a psicóloga escolhe o sistema certo para a necessidade dela.</p>
+  <div class="ecosystem-grid">
+    <a href="https://michellepsicologiareal-collab.github.io/psireal-clinica/index.html" class="product-card featured">
+      <div>
+        <div class="product-kicker">Materiais clínicos + inventários</div>
+        <div class="product-title">PsiReal Clínica</div>
+        <p class="product-copy">Plataforma clínica para aplicar GAD-7, PHQ-9, YSQ-S3 e outros instrumentos por link, acompanhar evolução emocional, organizar pacientes e consultar materiais estruturados.</p>
+      </div>
+      <div class="product-tags"><span>Inventários</span><span>Links para pacientes</span><span>Evolução emocional</span><span>Materiais clínicos</span></div>
+      <div class="product-action">Conhecer a plataforma →</div>
+    </a>
+    <a href="https://psireal.app/" target="_blank" class="product-card">
+      <div>
+        <div class="product-kicker">Gestão de consultório</div>
+        <div class="product-title">psireal.app</div>
+        <p class="product-copy">Sistema separado para rotina administrativa: prontuário, agenda, financeiro e organização do consultório.</p>
+      </div>
+      <div class="product-tags"><span>Agenda</span><span>Prontuário</span><span>Financeiro</span><span>Gestão</span></div>
+      <div class="product-action">Abrir app de gestão →</div>
+    </a>
+  </div>
 </section>
 
 <section class="section" style="padding-top:0;">
@@ -580,13 +616,13 @@
 
 <footer>
   <div class="footer-logo">Biblioteca Psi<span>Real</span></div>
-  <p>Recursos clínicos em TCC · Acesso aberto · <a href="https://psireal.app/" target="_blank">Psi Real App</a></p>
+  <p>Recursos clínicos em TCC · Acesso aberto · <a href="https://michellepsicologiareal-collab.github.io/psireal-clinica/index.html">PsiReal Clínica</a> · <a href="https://psireal.app/" target="_blank">psireal.app</a></p>
 </footer>
 
 <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/biblioteca-psi-real/sw.js')
+      navigator.serviceWorker.register('/psireal-hub/biblioteca-tcc/sw.js')
         .catch(err => console.warn('SW registration failed:', err));
     });
   }
