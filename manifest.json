@@ -1,17 +1,14 @@
 {
-  "name": "Psicologia Real — Michelle Donegá",
+  "name": "Biblioteca Psi Real",
   "short_name": "Psi Real",
-  "description": "Terapia, supervisão e consultoria corporativa com base em TCC",
-  "start_url": "/psireal-hub/",
-  "scope": "/psireal-hub/",
+  "description": "Recursos clínicos em TCC para psicólogos e supervisores",
+  "start_url": "./",
   "display": "standalone",
-  "background_color": "#F8F2F4",
-  "theme_color": "#3D2028",
-  "orientation": "portrait-primary",
+  "background_color": "#FAF6F7",
+  "theme_color": "#8B3A4A",
+  "orientation": "any",
   "icons": [
-    {"src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable"},
-    {"src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}
-  ],
-  "categories": ["health", "medical", "education"],
-  "lang": "pt-BR"
+    { "src": "./icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "./icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
 }
